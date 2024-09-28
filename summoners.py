@@ -39,7 +39,7 @@ class Summoners:
         if isJungle:
             value[f'summoner_1'] = 'Smite'
 
-        summoners = random.sample(list(self.summoners.values()), isJungle == False and 2 or 1)
+        summoners = random.sample(list(self.summoners.values()), isJungle == True and 1 or amount)
 
         for summoner in summoners:
             value[f'summoner_{len(value) + 1}'] = summoner['name']

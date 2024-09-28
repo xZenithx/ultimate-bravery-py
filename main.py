@@ -33,3 +33,7 @@ for lane in lanes:
     
     with open(f'builds/ultbook_{lane}.json', 'w') as f:
         json.dump(ult_build, f, indent=4)
+
+for i in range(3):
+    with open(f'builds/aram_{i + 1}.json', 'w') as f:
+        json.dump(Aram.CreateBuild(), f, indent=4)
