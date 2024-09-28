@@ -1,0 +1,21 @@
+{
+    "champion": "Zoe",
+    "summoner_1": "Ignite",
+    "summoner_2": "Cleanse",
+    "rune_primary_1": "Glacial Augment",
+    "rune_primary_2": "Magical Footwear",
+    "rune_primary_3": "Biscuit Delivery",
+    "rune_primary_4": "Approach Velocity",
+    "rune_secondary_1": "Last Stand",
+    "rune_secondary_2": "Absorb Life",
+    "rune_extra_1": 2,
+    "rune_extra_2": 1,
+    "rune_extra_3": 1,
+    "starter": "Cull",
+    "item_1": "Ionian Boots of Lucidity",
+    "item_2": "Spirit Visage",
+    "item_3": "Liandry's Torment",
+    "item_4": "Knight's Vow",
+    "item_5": "Axiom Arc",
+    "item_6": "Staff of Flowing Water"
+}

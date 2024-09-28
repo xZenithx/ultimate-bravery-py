@@ -1,0 +1,21 @@
+{
+    "champion": "Shen",
+    "summoner_1": "Flash",
+    "summoner_2": "Ignite",
+    "rune_primary_1": "Fleet Footwork",
+    "rune_primary_2": "Triumph",
+    "rune_primary_3": "Legend: Alacrity",
+    "rune_primary_4": "Coup de Grace",
+    "rune_secondary_1": "Cosmic Insight",
+    "rune_secondary_2": "Time Warp Tonic",
+    "rune_extra_1": 3,
+    "rune_extra_2": 3,
+    "rune_extra_3": 1,
+    "starter": "Doran's Ring",
+    "item_1": "Boots of Swiftness",
+    "item_2": "Luden's Companion",
+    "item_3": "Mikael's Blessing",
+    "item_4": "Archangel's Staff",
+    "item_5": "Jak'Sho, The Protean",
+    "item_6": "Spirit Visage"
+}

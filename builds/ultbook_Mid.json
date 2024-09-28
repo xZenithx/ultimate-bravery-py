@@ -1,0 +1,21 @@
+{
+    "champion": "Bel'Veth",
+    "summoner_1": "Flash",
+    "summoner_2": "Cleanse",
+    "rune_primary_1": "Summon Aery",
+    "rune_primary_2": "Manaflow Band",
+    "rune_primary_3": "Absolute Focus",
+    "rune_primary_4": "Scorch",
+    "rune_secondary_1": "Taste of Blood",
+    "rune_secondary_2": "Eyeball Collection",
+    "rune_extra_1": 3,
+    "rune_extra_2": 1,
+    "rune_extra_3": 1,
+    "starter": "Doran's Shield",
+    "item_1": "Ionian Boots of Lucidity",
+    "item_2": "Chempunk Chainsword",
+    "item_3": "Sundered Sky",
+    "item_4": "Axiom Arc",
+    "item_5": "Void Staff",
+    "item_6": "Dawncore"
+}

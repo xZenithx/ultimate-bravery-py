@@ -1,0 +1,21 @@
+{
+    "champion": "Vladimir",
+    "summoner_1": "Exhaust",
+    "summoner_2": "Heal",
+    "rune_primary_1": "Electrocute",
+    "rune_primary_2": "Taste of Blood",
+    "rune_primary_3": "Zombie Ward",
+    "rune_primary_4": "Treasure Hunter",
+    "rune_secondary_1": "Absolute Focus",
+    "rune_secondary_2": "Gathering Storm",
+    "rune_extra_1": 3,
+    "rune_extra_2": 3,
+    "rune_extra_3": 3,
+    "starter": "Doran's Ring",
+    "item_1": "Mercury's Treads",
+    "item_2": "Serylda's Grudge",
+    "item_3": "Youmuu's Ghostblade",
+    "item_4": "Hextech Rocketbelt",
+    "item_5": "Kraken Slayer",
+    "item_6": "Zeke's Convergence"
+}
