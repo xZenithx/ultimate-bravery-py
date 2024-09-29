@@ -87,6 +87,16 @@ class Items:
             # Dark Seal
             if item == '1082':
                 return True
+        else:
+            # Doran's Shield
+            if item == '1054':
+                return False
+            # Doran's Blade
+            if item == '1055':
+                return False
+            # Doran's Ring
+            if item == '1056':
+                return False
 
         if not 'tags' in item_data:
             return False

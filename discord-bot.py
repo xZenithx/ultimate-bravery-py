@@ -23,15 +23,13 @@ lane_options = [
     discord.OptionChoice(name="Support", value="Support"),
 ]
 
-
 @bot.slash_command(
   name="build",
-  guild_ids=[1289741046066057237]
 )
 async def build(
     ctx: discord.ApplicationContext,
     mode: discord.Option(str, 'Choose a mode', choices=mode_options),
-    lane: discord.Option(str, 'Pick a lane', choices=lane_options)
+    lane: discord.Option(str, 'Pick a lane', choices=lane_options, required=False)
 ):
     build = main.CreateBuild(mode=mode, lane=lane)
     string = f'''
@@ -82,5 +80,12 @@ async def build(
 
     await ctx.respond(string)
 
+# @bot.slash_command(
+#   name="aramrules",
+# )
+# async def aramrules(ctx: discord.ApplicationContext,):
+#     await ctx.respond(f'''
+# 1. You may pick any champion
+# ''')
 
 bot.run(os.getenv('DISCORD_TOKEN'))
