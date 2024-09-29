@@ -80,12 +80,13 @@ class Items:
     def isItemStarter(self, item):
         item_data = self.items_data[item]
 
-        # Cull
-        if item == '1083':
-            return True
-        # Dark Seal
-        if item == '1082':
-            return True
+        if self.map != '12':
+            # Cull
+            if item == '1083':
+                return True
+            # Dark Seal
+            if item == '1082':
+                return True
 
         if not 'tags' in item_data:
             return False

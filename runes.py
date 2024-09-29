@@ -40,6 +40,10 @@ class Runes:
                 secondary_tree = random_tree
 
         runes = []
+
+        runes.append(primary_tree['name'])
+        runes.append(secondary_tree['name'])
+
         for slot in primary_tree['slots']:
             random_rune = random.choice(slot['runes'])
             runes.append(random_rune)
@@ -51,13 +55,21 @@ class Runes:
             runes.append(random_rune)
         
         return {
-            'rune_primary_1': runes[0]['name'],
-            'rune_primary_2': runes[1]['name'],
-            'rune_primary_3': runes[2]['name'],
-            'rune_primary_4': runes[3]['name'],
-            'rune_secondary_1': runes[4]['name'],
-            'rune_secondary_2': runes[5]['name'],
-            'rune_extra_1': random.randrange(1, 4),
-            'rune_extra_2': random.randrange(1, 4),
-            'rune_extra_3': random.randrange(1, 4)
+            'rune_primary': {
+                'name': runes[0],
+                '1': runes[2]['name'],
+                '2': runes[3]['name'],
+                '3': runes[4]['name'],
+                '4': runes[5]['name']
+            },
+            'rune_secondary': {
+                'name': runes[1],
+                '1': runes[6]['name'],
+                '2': runes[7]['name']
+            },
+            'rune_extra': {
+                '1': random.randrange(1, 4),
+                '2': random.randrange(1, 4),
+                '3': random.randrange(1, 4)
+            }
         }
