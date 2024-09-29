@@ -1,6 +1,7 @@
 import discord
 import os
 import random
+from adjectives import get_random_adjective
 from dotenv import load_dotenv
 from discord.ext import commands
 from main import Main
@@ -28,26 +29,20 @@ lane_options = [
 )
 async def build(
     ctx: discord.ApplicationContext,
-    mode: discord.Option(str, 'Choose a mode', choices=mode_options),
-    lane: discord.Option(str, 'Pick a lane', choices=lane_options, required=False)
+    mode: discord.Option(str, 'Choose a mode', choices=mode_options), # type: ignore
+    lane: discord.Option(str, 'Pick a lane', choices=lane_options, required=False) # type: ignore
 ):
     build = main.CreateBuild(mode=mode, lane=lane)
-    string = f'''
-[**{build['mode']}**]
-[**{build['lane']}**]
-'''
-
-    letters = ["Q", "W", "E"]
-    random_letters = random.sample(letters, 3)
-    result = " > ".join(random_letters)
-
+    embed = discord.Embed()
+    embed.set_author(name=f'{build['mode']}')
+    embed.set_footer(text="by Zenith")
     if 'champion' in build:
-        string += f'''
-[**{build['champion']}**]
-'''
-    string += f'''
+        embed.title = f'{get_random_adjective().capitalize()} {build['champion']} | {build['lane']}'
+        embed.set_thumbnail(url=f'https://ddragon.leagueoflegends.com/cdn/14.19.1/img/champion/{build['champion'].replace('\'', '')}.png')
+    
+    
+    embed.description = f'''
 [**{build['summoner_1']}**, **{build['summoner_2']}**]
-[**{result}**]
 
 [**{build['rune_primary']['name']}**]
 > **{build['rune_primary']['1']}**
@@ -63,12 +58,12 @@ async def build(
 > {build['rune_extra']['1']}, {build['rune_extra']['2']}, {build['rune_extra']['3']}
 '''
     if 'starter' in build:
-        string += f'''
+        embed.description += f'''
 [**Starter**]
 > {build['starter']}
 '''
 
-    string += f'''
+    embed.description += f'''
 [**Items**]
 > {build['item_1']}
 > {build['item_2']}
@@ -77,15 +72,55 @@ async def build(
 > {build['item_5']}
 > {build['item_6']}
 '''
+    
 
-    await ctx.respond(string)
+    await ctx.respond(embed=embed)
 
-# @bot.slash_command(
-#   name="aramrules",
-# )
-# async def aramrules(ctx: discord.ApplicationContext,):
-#     await ctx.respond(f'''
-# 1. You may pick any champion
-# ''')
 
 bot.run(os.getenv('DISCORD_TOKEN'))
+
+#     string = f'''
+# [**{build['mode']}**]
+# [**{build['lane']}**]
+# '''
+
+#     letters = ["Q", "W", "E"]
+#     random_letters = random.sample(letters, 3)
+#     result = " > ".join(random_letters)
+
+#     if 'champion' in build:
+#         string += f'''
+# [**{build['champion']}**]
+# '''
+#     string += f'''
+# [**{build['summoner_1']}**, **{build['summoner_2']}**]
+# [**{result}**]
+
+# [**{build['rune_primary']['name']}**]
+# > **{build['rune_primary']['1']}**
+# > {build['rune_primary']['2']}
+# > {build['rune_primary']['3']}
+# > {build['rune_primary']['4']}
+
+# [**{build['rune_secondary']['name']}**]
+# > {build['rune_secondary']['1']}
+# > {build['rune_secondary']['2']}
+
+# [**Extras**]
+# > {build['rune_extra']['1']}, {build['rune_extra']['2']}, {build['rune_extra']['3']}
+# '''
+#     if 'starter' in build:
+#         string += f'''
+# [**Starter**]
+# > {build['starter']}
+# '''
+
+#     string += f'''
+# [**Items**]
+# > {build['item_1']}
+# > {build['item_2']}
+# > {build['item_3']}
+# > {build['item_4']}
+# > {build['item_5']}
+# > {build['item_6']}
+# '''
