@@ -14,6 +14,7 @@ class Items:
         self.items_starters = []
         self.items_jungle = []
         self.items_support = []
+        self.items_by_tag = {}
 
         # Make a GET request to the URL
         response = requests.get(self.items_uri)
@@ -34,6 +35,11 @@ class Items:
         for item in self.items:
             if self.isItemLegendary(item):
                 self.items_legendary.append(item)
+
+                for tag in self.items_data[item]['tags']:
+                    self.items_by_tag.setdefault(tag, {})
+                    self.items_by_tag[tag][item] = self.items_data[item]
+
             if self.isItemBoots(item):
                 self.items_boots.append(item)
             if self.isItemStarter(item):
@@ -42,7 +48,7 @@ class Items:
                 self.items_jungle.append(item)
             if self.isItemSupport(item):
                 self.items_support.append(item)
-
+    
     def isItemValid(self, item):
         item_data = self.items_data[item]
         if not 'maps' in item_data:
@@ -136,6 +142,9 @@ class Items:
     def RandomLegendary(self):
         return self.items_data[random.choice(self.items_legendary)]
 
+    def RandomByTag(self, tag):
+        return random.choice(list(self.items_by_tag[tag]))
+
     def RandomJungle(self):
         return self.items_data[random.choice(self.items_jungle)]
 
@@ -163,13 +172,21 @@ class Items:
             starter = self.RandomStarter()['name']
 
         build.append(self.RandomBoots()['name'])
+        
+        random_item = self.RandomLegendary()
+        build.append(random_item['name'])
 
         while len(build) <= 5:
-            random_item = self.RandomLegendary()['name']
-            if not random_item in build:
-                build.append(random_item)
+            item_data = random_item
+            item_tags = item_data['tags']
+            print(item_tags)
+            item_with_tag = self.RandomByTag(random.choice(item_tags))
+            item = self.items_data[item_with_tag]
+            if not item['name'] in build:
+                build.append(item['name'])
         
         return {
+            'item_tags': random_item['tags'],
             'starter': starter,
             'item_1': build[0],
             'item_2': build[1],

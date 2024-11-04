@@ -30,22 +30,27 @@ class Main:
             'Support'
         ]
 
-        # for lane in lanes:
-        #     build = Classic.CreateBuild(isSupport = lane == 'Support', isJungle = lane == 'Jungle')
-        #     ult_build = UltBook.CreateBuild()
+    def generateBuildFiles(self):
+        for lane in self.lanes:
+            build = Classic.CreateBuild(isSupport = lane == 'Support', isJungle = lane == 'Jungle')
+            ult_build = UltBook.CreateBuild()
 
-        #     with open(f'builds/classic_{lane}.json', 'w') as f:
-        #         json.dump(build, f, indent=4)
+            with open(f'builds/classic_{lane}.json', 'w') as f:
+                json.dump(build, f, indent=4)
             
-        #     with open(f'builds/ultbook_{lane}.json', 'w') as f:
-        #         json.dump(ult_build, f, indent=4)
+            with open(f'builds/ultbook_{lane}.json', 'w') as f:
+                json.dump(ult_build, f, indent=4)
 
-        # for i in range(3):
-        #     with open(f'builds/aram_{i + 1}.json', 'w') as f:
-        #         json.dump(Aram.CreateBuild(), f, indent=4)
+        for i in range(3):
+            with open(f'builds/aram_{i + 1}.json', 'w') as f:
+                json.dump(Aram.CreateBuild(), f, indent=4)
 
     def CreateBuild(self, mode='', lane='mid'):
         build = mode_guide[mode].CreateBuild(isSupport=lane=='Support', isJungle=lane=='Jungle')
         build['lane'] = lane
         print(build)
         return build
+
+if __name__ == '__main__':
+    main = Main()
+    main.generateBuildFiles()
