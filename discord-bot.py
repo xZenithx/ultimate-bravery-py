@@ -5,6 +5,8 @@ from dotenv import load_dotenv
 from discord.ext import commands
 from main import Main
 
+PATCH = '14.21.1'
+
 load_dotenv()
 
 bot = commands.Bot()
@@ -118,7 +120,7 @@ async def build(
     embed.set_footer(text="by Zenith")
     if 'champion' in build:
         embed.title = f'{get_random_adjective()} {build['champion']} | {build['lane']}'
-        embed.set_thumbnail(url=f'https://ddragon.leagueoflegends.com/cdn/14.19.1/img/champion/{build['champion'].replace('\'', '')}.png')
+        embed.set_thumbnail(url=f'https://ddragon.leagueoflegends.com/cdn/{PATCH}/img/champion/{build['champion'].replace('\'', '')}.png')
     
     
     embed.description = f'''

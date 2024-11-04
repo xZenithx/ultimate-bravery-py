@@ -6,7 +6,7 @@ from modes.classic import CLASSIC
 from modes.aram import ARAM
 from modes.ultbook import ULTBOOK
 
-PATCH = '14.19.1'
+PATCH = '14.21.1'
 Classic = CLASSIC(PATCH)
 Aram = ARAM(PATCH)
 UltBook = ULTBOOK(PATCH)
